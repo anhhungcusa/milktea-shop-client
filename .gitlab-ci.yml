@@ -24,7 +24,6 @@ build:
   script:
     - npm run build
   artifacts:
-    key: 'buildto'
     paths:
       - build/
 
@@ -49,10 +48,6 @@ deploy as review app:
   environment:
     name: review/$CI_COMMIT_REF_NAME
     url: https://oalmilktea.web.app
-  artifacts:
-    key: 'buildto'
-    paths:
-      - build/
   script:
     - firebase use oalmilktea --token $FIREBASE_TOKEN
     - firebase target:apply hosting user oalmilktea
