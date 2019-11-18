@@ -1,0 +1,23 @@
+.news1 h2 {
+    font-size: 20px;
+    display: flex;
+    align-content: flex-start;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+.news1 .row1 {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr;
+    /* margin: 10px 50px 10px 50px; */
+    margin: 0 10% 0 10%;
+    border: 1px solid black;
+}
+.row1 .rowItem {
+    /* display: grid;
+    grid-template-columns: 1.5fr 1.5fr; */
+    /* margin: 10px 50px 10px 50px; */
+    border: 1px solid black;
+}
+.row1 .rowItem .item {
+    
+}

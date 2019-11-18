@@ -1,0 +1,80 @@
+.body {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    margin: 10px 50px 10px 50px;
+}
+.body .grid-item {
+    /* border: 1px solid rgba(0, 0, 0, 0.8); */
+    padding: 20px;
+    font-size: 30px;
+    text-align: left;
+    /* margin-left: 20px; */
+}
+.body .grid-item .title h2{
+    color: #d3b673;
+
+}
+.body .grid-item .listcategory {
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* list product */
+.grid-item .list-itemCate-right .pro-1 {
+    display: grid;
+    /* border-color: black 1px solid; */
+    grid-column-gap: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    grid-template-columns: auto auto auto;
+} 
+.body .grid-item .list-itemproduct .grid-item1 {
+    text-align: center;
+    height: 400px;
+    width: 262px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* margin-left: 70px; */
+}
+.grid-item .button {
+    display: grid;
+    border-color: black 1px solid;
+    grid-column-gap: 10px;
+    /* margin-top: 20px;
+    margin-left: 20px; */
+    grid-template-columns: auto auto;
+}
+
+.button .btn_detail1 {
+    background: #d3b673;
+    color: white;
+    font-size: 13px;
+    border: 1px solid #d3b673;
+    min-width: 80px;
+    text-align: center;
+    /* vertical-align: middle; */
+    line-height: 30px;
+    display: inline-block;
+    /* position: relative; */
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 30px;
+    border-radius: 5px;
+    /* /* font-family: Helvetica, Arial, sans-serif !important; */
+}
+.button .btn_detail1 a {
+    color: white;
+}
+.button .btn_detail1 a:hover {
+    color: #d3b673 ;  
+    transition: all 0.3s ease; 
+}
+.button .btn_detail1:hover {
+    background: white;
+    color: #d3b673 ;  
+    border: 1px solid #d3b673; 
+    transition: all 0.3s ease; 
+ }
+
+

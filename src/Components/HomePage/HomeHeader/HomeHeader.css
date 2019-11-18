@@ -1,0 +1,121 @@
+.home-main {
+    position: relative;
+}
+.home-main1 {
+    background-image: url(../../../Asset/Image/BackGroundTea.jpg);
+    height: 100vh;
+    /* position: absolute; */
+    width: 100%;
+
+}
+.home-main .home-main1 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* position: ; */
+}
+.home-main2 {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+    height: 100vh;
+    width: 100%
+}
+.side-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: auto;
+    text-align: center;
+}
+.home-main1  h3 {
+    font-size: 46px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+    display: block;
+    color: #efd08d;
+    text-align: center;
+    font-family: "Baloo", Helvetica, Arial, sans-serif !important;
+    letter-spacing: 1.2px;
+}
+.slide-bold-text {
+    font-size: 54px;
+    color: white;
+    letter-spacing: 2.7px;
+    font-family: "Baloo", Helvetica, Arial, sans-serif !important;
+}
+.slide-light-text {
+    color: white;
+    margin-bottom: 5px;
+    letter-spacing: 0.9px;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0 40px;
+    padding-bottom: 42px;
+}
+.slide-btn {
+    height: 100%;
+} 
+.slide-btn .slide-btn1 a {
+    color: white;
+}
+.slide-btn .slide-btn2 a {
+    color: white;
+}
+.slide-btn .slide-btn2 a:hover {
+    background: none;
+    color: black ;  
+    /* border: 1px solid #d3b673;  */
+    transition: all  ease; 
+}
+.slide-btn1 {
+    background: #d3b673;
+    color: white;
+    font-size: 18px;
+    border: 1px solid #d3b673;
+    margin-right: 15px;
+    height: 40px;
+    min-width: 150px;
+    text-align: center;
+    line-height: 40px;
+    display: inline-block;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 600;
+    /* font-family:  Helvetica, Arial, sans-serif !important; */
+}
+.slide-btn1:hover {
+    background: black;
+    color: white;   
+    transition: all 0.3s ease; 
+}
+.slide-btn2 {
+    color: white;
+    border: 1px solid white;
+    background: transparent;
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    font-size: 18px;
+    line-height: 40px;
+    padding: 0px 15px;
+    min-width: 150px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.slide-btn .slide-btn2:hover {
+    /* background: black; */
+    color: black;
+    border: 1px solid black;
+    transition: all 0.3s ease; 
+}
+img {
+    display: block;
+    animation: mover 0.5s infinite alternate;
+    max-width: 100%;
+}
+img {
+    vertical-align: middle;
+}

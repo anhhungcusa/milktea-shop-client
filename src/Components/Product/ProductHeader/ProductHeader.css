@@ -1,0 +1,42 @@
+.intro-main {
+    position: relative;
+}
+.intro-main1 {
+    background-image: url(../../../Asset/Image/Gioithieu.png);
+    height: 40vh;
+    /* position: absolute; */
+    width: 100%;
+
+}
+.intro-main .intro-main1 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* position: ; */
+}
+.intro-main2 {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    height: 40vh;
+    width: 100%
+}
+.side1-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: auto;
+    text-align: center;
+}
+.intro-main1  h3 {
+    font-size: 46px;
+    margin-bottom: 5px;
+    margin-top: 40px;
+    font-weight: bold;
+    display: block;
+    color: #efd08d;
+    text-align: center;
+    font-family: "Baloo", Helvetica, Arial, sans-serif !important;
+    letter-spacing: 1.2px;
+}
