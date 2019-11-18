@@ -28,8 +28,8 @@ export const IntroductBody = () => {
 					</div>
 				</div>
 				<div className="content1">
-					<img src="https://file.hstatic.net/1000360860/file/1._hinh_gioi_thieu_lich_su_su_menh_11ee7c00a7bd4f378fe05d20d02b8fb7_grande.jpg" />
-                    <img src="https://file.hstatic.net/1000360860/file/2._hinh_gioi_thieu_lich_su_su_menh_1_9f6818ac6c214a979972c671cb7ee511_grande.jpg"/>
+					<img alt="ax" src="https://file.hstatic.net/1000360860/file/1._hinh_gioi_thieu_lich_su_su_menh_11ee7c00a7bd4f378fe05d20d02b8fb7_grande.jpg" />
+                    <img alt="ax" src="https://file.hstatic.net/1000360860/file/2._hinh_gioi_thieu_lich_su_su_menh_1_9f6818ac6c214a979972c671cb7ee511_grande.jpg"/>
 				</div>
 			</div>
 		</div>

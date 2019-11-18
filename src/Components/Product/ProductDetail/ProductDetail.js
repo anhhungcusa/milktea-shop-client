@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
-import { DataContext } from '../../../context/DataProvider';
+import React, { useState } from 'react';
+// import { DataContext } from '../../../context/DataProvider';
 import 'antd/dist/antd.css';
 import './ProductDetail.css';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 import { Link } from 'react-router-dom';
 
 // const formItemLayout = {
@@ -27,7 +27,7 @@ export const ProductDetail = ({ product }) => {
 			>
 				<div className="body">
 					<div className="img">
-						<img src={product && product.imgURL} />
+						<img alt="dw" src={product && product.imgURL} />
 						{/* {product && product.imgURL} */}
 					</div>
 					<div className="description">
