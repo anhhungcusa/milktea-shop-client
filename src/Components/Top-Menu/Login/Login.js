@@ -114,7 +114,7 @@ let {
 } = useContext(DataContext);
 const [ lgShow, setLgShow ] = useState({ visible: false });  
 const callback= (key) =>  {
-console.log(key);
+// console.log(key);
 }
 const handleSignIn = ( email, password) => {
 	SignIn(email, password);
