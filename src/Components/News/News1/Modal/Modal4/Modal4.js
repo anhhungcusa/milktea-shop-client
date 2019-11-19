@@ -83,7 +83,7 @@ export const Modal4 = () => {
 					<h5>
 						Tại cửa hàng, dụng cụ pha chế đều được tráng nước lọc trước khi sử dụng, nước nấu đồ được xử lý
 						qua máy lọc RO, được đun sôi đảm bảo an toàn chất lượng sản phẩm. Nguyên liệu trước khi pha chế
-						được kiểm tra đảm bảo chất lượng cảm quan, hạn sử dụng.
+						được kiểm tra đảm bảo chất lượng cảm quan, hạn sử dụng...
 					</h5>
 				</div>
 			</Modal>
