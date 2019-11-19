@@ -8,16 +8,24 @@
 .news1 .row1 {
     display: grid;
     grid-template-columns: 1.5fr 1.5fr;
-    /* margin: 10px 50px 10px 50px; */
     margin: 0 10% 0 10%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    margin-top: 2%;
 }
 .row1 .rowItem {
-    /* display: grid;
-    grid-template-columns: 1.5fr 1.5fr; */
-    /* margin: 10px 50px 10px 50px; */
-    border: 1px solid black;
+    margin-bottom:5%;
+    margin-top:5%;
 }
-.row1 .rowItem .item {
-    
+.row1 .rowItem .card {
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.row1 .rowItem .card .ant-card-meta-description {
+    white-space:  pre-wrap; 
+    width: 350px; 
+    height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    text-align: left;
+    /* border: 1px solid #000000; */
 }

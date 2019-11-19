@@ -3,8 +3,8 @@ import './IntrodyctBody.css';
 export const IntroductBody = () => {
 	return (
 		<div>
-			<div className="body">
-				<div className="content">
+			<div className="body1">
+				<div className="content1">
 					<h1>Giới Thiệu</h1>
 					<div>
 						<p>
@@ -27,7 +27,7 @@ export const IntroductBody = () => {
 						</p>
 					</div>
 				</div>
-				<div className="content1">
+				<div className="content12">
 					<img alt="ax" src="https://file.hstatic.net/1000360860/file/1._hinh_gioi_thieu_lich_su_su_menh_11ee7c00a7bd4f378fe05d20d02b8fb7_grande.jpg" />
                     <img alt="ax" src="https://file.hstatic.net/1000360860/file/2._hinh_gioi_thieu_lich_su_su_menh_1_9f6818ac6c214a979972c671cb7ee511_grande.jpg"/>
 				</div>
