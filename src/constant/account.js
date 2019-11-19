@@ -5,7 +5,7 @@ export const accountLimitValue = {
     },
     address: {
         min: 10,
-        max: 20
+        max: 50
     },
     phone: {
         min: 10,
@@ -14,11 +14,11 @@ export const accountLimitValue = {
 }
 
 export const errorMessage = {
-    email:`Email không được để trống`,
-    password: `Không được để trống và gồm chữ và số`,
-    password_again: `Không được để trống và gồm chữ và số`,
+    email:`Địa chỉ email không hợp lệ`,
+    password: `Mật khẩu phải lớn hơn 6 ký tự`,
+    password_again: `Nhập lại mật khẩu không hợp lệ`,
     name: `Không được để trống`,
-    address: `ít nhất ${accountLimitValue.address.min} đến ${accountLimitValue.address.max} ký tự`,
-    phone: `Là số và  ít nhất từ ${accountLimitValue.phone.min} đến ${accountLimitValue.phone.max} số`,
+    address: `Địa chỉ phải từ ${accountLimitValue.address.min} đến ${accountLimitValue.address.max} ký tự`,
+    phone: `Số điện thoại phải từ ${accountLimitValue.phone.min} đến ${accountLimitValue.phone.max} số`,
     ngaysinh: `Ngày sinh không được để trống`
 }
