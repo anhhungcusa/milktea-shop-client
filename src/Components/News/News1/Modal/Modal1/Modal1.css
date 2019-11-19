@@ -1,0 +1,23 @@
+.contentmodal {
+    margin: 0 auto;
+    width: 800px;
+    height: 600px;
+    overflow: auto;
+}
+.contentmodal h2 {
+    font-size: 20px;
+    /* font-weight: 400; */
+    margin-bottom: 5%;
+    /* font-weight: 400; */
+}
+.contentmodal img {
+    margin-top: 2%;
+    height: 370px;
+    width: 600px;
+    margin-bottom: 2%;
+}
+.contentmodal h4 {
+    font-size: 18px;
+    margin-top: 5%;
+    font-weight: 500;
+}
