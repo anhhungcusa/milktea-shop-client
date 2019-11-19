@@ -3,7 +3,7 @@ image: node:10.15.3
 stages:
   - install_dependencies
   - build
-  - test
+  # - test
   - deploy
 
 cache:
