@@ -6,7 +6,7 @@ export const IntroductBody = () => {
 			<div className="body1">
 				<div className="content1">
 					<h1>Giới Thiệu</h1>
-					<div>
+					<div className="content1">
 						<p>
 							Luôn tâm huyết với việc khai thác nguồn nông sản Việt Nam để tạo ra những ly thức uống tươi
 							ngon, an toàn và giàu giá trị dinh dưỡng, TocoToco mở cửa hàng đầu tiên vào năm 2013, mang

@@ -23,6 +23,7 @@
     margin: 15px auto;
     border: 1px solid #d3b673; 
     border-radius: 5px ;
+    color: #d3b673;
 }
 .input .btn-submit {
     font-weight: bold;

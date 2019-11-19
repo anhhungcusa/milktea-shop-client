@@ -30,6 +30,8 @@ build:
 deploy as review app:
   image: rambabusaravanan/firebase
   stage: deploy
+  only:
+    - master
   environment:
     name: review/$CI_COMMIT_REF_NAME
     url: https://oalmilktea.web.app

@@ -3,7 +3,7 @@ export const collections = {
 	feedbacks: 'feedbacks',
 	orders: 'orders',
 	users: 'users',
-	membership: 'membership',
+	membership: 'memberships',
 	types: 'types'
 };
 
@@ -20,3 +20,6 @@ export const types_docs = {
 export const sub_collections = {
 	types: 'all'
 };
+
+
+export const formatDate = 'DD/MM/YYYY'

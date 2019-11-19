@@ -1,18 +1,24 @@
 .body2 {
     margin-top: 50px;
 }
-.content2 h1 {
+.content11 h1 {
     text-align: left;
     font-size: 36px;
+    margin-right: 10%;
+    margin-left: 10%;
 }
-.content2 p {
+.content11 p {
     text-align: left;
     font-size: 16px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
-.content2 {
+.content13 {
     margin: 0 auto;
     max-width: 1200px;
 }
-.content22 img {
+.content13 img {
     margin-bottom: 20px;
+    display: flex;
+    align-content: center;
 }

@@ -13,3 +13,8 @@ export const checkNoSymbolsOrSpecialChars = value => {
     let regex = new RegExp(/^[_A-z0-9]*((-|\s)*[_A-z0-9])*$/g)
     return regex.test(value)
 }
+
+export const checkEmail = value => {
+    let regex = new RegExp(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g)
+    return regex.test(value)
+}
