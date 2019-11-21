@@ -5,7 +5,7 @@ export const accountLimitValue = {
     },
     address: {
         min: 10,
-        max: 50
+        max: 100
     },
     phone: {
         min: 10,

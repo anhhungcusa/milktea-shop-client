@@ -10,7 +10,7 @@ import { ReactComponent as Man } from '../../../Asset/Image/man.svg';
 import { ErrorMessage } from '../../ErrorMessage/ErrorMessage';
 import { errorMessage, accountLimitValue } from '../../../constant/account';
 import moment from 'moment';
-import { formatDate } from '../../../constant/firebase';
+import { formatDate, collections } from '../../../constant/firebase';
 import { FirebaseService } from '../../../service/firebase';
 
 // const { SubMenu } = Menu;
@@ -185,7 +185,6 @@ export const Login = () => {
 				email: account.email,
 				id: resSignUp.user.uid,
 				orders: [],
-				cart: [],
 				point: 0,
 				numberOfCancels: 0,
 				numberOfReturns: 0,
@@ -194,6 +193,10 @@ export const Login = () => {
 				isDeleted: false
 			}
 			await FirebaseService.addNewMembership(membership)
+			await FirebaseService.db.collection(collections.carts).doc(resSignUp.user.uid).set({
+				cart: [],
+				updateAt: new Date()
+			})
 			setIsRegistering(false)
 			message.success('Đăng ký thành công!')
 		} catch (error) {
