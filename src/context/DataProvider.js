@@ -1,9 +1,8 @@
 import React, { createContext, useState, useEffect } from "react";
 import { FirebaseService } from "../service/firebase";
-import { collections, types_docs, sub_collections, orderx_docs, defaultIdState, paypal, calculateExtraPoint } from "../constant/firebase";
+import { collections, types_docs, sub_collections, orderx_docs, defaultIdState, paypal, calculateExtraPoint, orders_docs } from "../constant/firebase";
 
-
-export const DataContext = createContext(null)
+export const DataContext = createContext(null);
 export const DataProvider = ({ children }) => {
     const [store, setStore] = useState({
         products: [],
@@ -14,7 +13,8 @@ export const DataProvider = ({ children }) => {
         membership: null,
         myProcessingOrders: null,
         myProcessedOrders: null,
-        isLoggedIn: false
+        isLoggedIn: false,
+        timeStore: {}
         //deep clone / shallow clone
     })
 
@@ -80,7 +80,6 @@ export const DataProvider = ({ children }) => {
             }))
         })
     }, [])
-
     // update cart for membership at db
     useEffect(() => {
         // handle debounce
@@ -172,102 +171,20 @@ export const DataProvider = ({ children }) => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [store.isLoggedIn])
-
-    // handle Sign in
-    const signIn = async (email, password) => {
-        try {
-            await FirebaseService.signIn(email, password)
-            const currUser = FirebaseService.auth.currentUser
-            const membershipDoc = await FirebaseService.db.collection(collections.membership).doc(currUser.uid).get()
-            if (membershipDoc.exists) {
-                const membership = membershipDoc.data()
-                if (membership.isDeleted === true) {
-                    return 401 // member is banned
-                } else {
-                    let newCart = membership.cart.slice()
-                    let positionInvalid = []
-                    // find  product deleted
-                    newCart.forEach((item, index) => {
-                        const isExit = store.products.findIndex(product => product.id === item.id)
-                        if (isExit === -1) {
-                            positionInvalid.push(index)
-                        }
-                    })
-                    // delete product in cart
-                    positionInvalid.forEach(position => {
-                        newCart.splice(position, 1)
-                    })
-                    // const discountCol = FirebaseService.db.collection(collections.types).doc(types_docs.discounts).collection(sub_collections.types)
-                    // const myDiscounts = await discountCol.where('minPoint', '<=', membership.point).get()
-                    setStore(
-                        store => ({
-                            ...store,
-                            membership: {
-                                ...membership,
-                                updateAt: membership.updateAt.toDate(),
-                                createAt: membership.createAt.toDate(),
-                                birthday: membership.birthday.toDate(),
-                            },
-                            isLoggedIn: true,
-                            cart: newCart
-                        })
-                    )
-                }
-            } else {
-                return 400 // account is not valid
-            }
-
-            return 200 // success
-
-        } catch (error) {
-            return 400 // account is not valid
-        }
-    }
-
-    // manage cart
-    const addProduct = (product) => {
-        const { id, price } = product
-        const { cart } = store
-        const isIndexExit = cart.findIndex(item => item.id === id)
-        let newCart = cart.slice();
-        if (isIndexExit === -1) {
-            newCart.push({
-                id,
-                price,
-                count: 1
-            })
-        } else {
-            const newCartItem = {
-                ...cart[isIndexExit],
-                count: cart[isIndexExit].count + 1
-            }
-            newCart.splice(isIndexExit, 1, newCartItem)
-        }
-        setStore({
-            ...store,
-            cart: newCart
-        })
-    }
-    const updateCountInCart = (id, value) => {
-        const { cart } = store
-        const itemIndex = cart.findIndex(item => item.id === id)
-        let newCart = cart.slice();
-        let count = cart[itemIndex].count + value
-        if (count > 0) {
-            const newCartItem = {
-                ...cart[itemIndex],
-                count,
-            }
-            newCart.splice(itemIndex, 1, newCartItem)
-        } else {
-            newCart.splice(itemIndex, 1)
-        }
-        setStore({
-            ...store,
-            cart: newCart
-        })
-
-    }
+	// connect realtime to update close and open store
+	useEffect(() => {
+		const timeStoreDoc = FirebaseService.db.collection(collections.orders).doc(orders_docs.processing);
+		timeStoreDoc.onSnapshot((doc) => {
+			const timeStore = doc.data();
+            // console.log('timestore: ', timeStore)
+			setStore((store) => ({
+				...store,
+				timeStore: {
+                    ...timeStore
+				}
+			}));
+		});
+    }, []);
 
     //handle order for paymentmethod: cash
     const order = async (receiver, idPaymentMethod, idMembership, discount) => {
@@ -320,38 +237,119 @@ export const DataProvider = ({ children }) => {
             return 400
         }
     }
+	// handle Sign in
+	const signIn = async (email, password) => {
+		try {
+			await FirebaseService.signIn(email, password);
+			const currUser = FirebaseService.auth.currentUser;
+			const membershipDoc = await FirebaseService.db.collection(collections.membership).doc(currUser.uid).get();
+			if (membershipDoc.exists) {
+				const membership = membershipDoc.data();
+				if (membership.isDeleted === true) {
+					return 401; // member is banned
+				} else {
+					let newCart = membership.cart.slice();
+					let positionInvalid = [];
+					// find  product deleted
+					newCart.forEach((item, index) => {
+						const isExit = store.products.findIndex((product) => product.id === item.id);
+						if (isExit === -1) {
+							positionInvalid.push(index);
+						}
+					});
+					// delete product in cart
+					positionInvalid.forEach((position) => {
+						newCart.splice(position, 1);
+					});
+					setStore({
+						...store,
+						membership: {
+							...membership,
+							updateAt: membership.updateAt.toDate(),
+							createAt: membership.createAt.toDate(),
+							birthday: membership.birthday.toDate()
+						},
+						isLoggedIn: true,
+						cart: newCart
+					});
+				}
+			} else {
+				return 400; // account is not valid
+			}
 
+			return 200; // success
+		} catch (error) {
+			return 400; // account is not valid
+		}
+	};
+	// manage cart
+	const addProduct = (product) => {
+		const { id, price } = product;
+		const { cart } = store;
+		const isIndexExit = cart.findIndex((item) => item.id === id);
+		let newCart = cart.slice();
+		if (isIndexExit === -1) {
+			newCart.push({
+				id,
+				price,
+				count: 1
+			});
+		} else {
+			const newCartItem = {
+				...cart[isIndexExit],
+				count: cart[isIndexExit].count + 1
+			};
+			newCart.splice(isIndexExit, 1, newCartItem);
+		}
+		setStore({
+			...store,
+			cart: newCart
+		});
+    };
+	const updateCountInCart = (id, value) => {
+		const { cart } = store;
+		const itemIndex = cart.findIndex((item) => item.id === id);
+		let newCart = cart.slice();
+		let count = cart[itemIndex].count + value;
+		if (count > 0) {
+			const newCartItem = {
+				...cart[itemIndex],
+				count
+			};
+			newCart.splice(itemIndex, 1, newCartItem);
+		} else {
+			newCart.splice(itemIndex, 1);
+		}
+		setStore({
+			...store,
+			cart: newCart
+		});
+	};
 
-    return (
-        <DataContext.Provider
-            value={{
-                store: {
-                    ...store
-                },
-                action: {
-                    product: {
-
-                    },
-                    productCategories: {
-
-                    },
-                    cart: {
-                        addProduct,
-                        updateCountInCart
-                    },
-                    paymentMethod: {
-
-                    },
-                    auth: {
-                        signIn
+	return (
+		<DataContext.Provider
+			value={{
+				store: {
+					...store
+				},
+				action: {
+					product: {},
+					productCategories: {},
+					cart: {
+						addProduct,
+						updateCountInCart
+					},
+					paymentMethod: {},
+					auth: {
+						signIn
                     },
                     orders: {
                         order
                     }
-                }
-            }}
-        >
-            {children}
-        </DataContext.Provider>
-    )
-}
+				}
+			}}
+		>
+			{children}
+		</DataContext.Provider>
+	);
+};

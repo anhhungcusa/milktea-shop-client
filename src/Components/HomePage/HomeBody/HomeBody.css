@@ -1,3 +1,6 @@
+.home-main {
+    z-index: -1;
+}
 .section-title {
     text-align: center;
     margin-bottom: 20px;

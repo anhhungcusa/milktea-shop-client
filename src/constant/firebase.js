@@ -21,6 +21,10 @@ export const sub_collections = {
 	types: 'all',
 	processing: 'all',
 };
+export const orders_docs = {
+	processed: 'processed',
+	processing: 'processing'
+}
 
 
 export const formatDate = 'DD/MM/YYYY'

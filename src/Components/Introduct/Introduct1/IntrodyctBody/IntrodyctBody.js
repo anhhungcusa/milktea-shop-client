@@ -1,9 +1,11 @@
 import React from 'react';
 import './IntrodyctBody.css';
+import { TimeStore } from '../../../TimeStore/TimeStore'
 export const IntroductBody = () => {
 	return (
 		<div>
 			<div className="body1">
+					<TimeStore/>
 				<div className="content1">
 					<h1>Giới Thiệu</h1>
 					<div className="content1">

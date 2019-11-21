@@ -1,3 +1,4 @@
+
 .search {
   margin-left: 3px;
 }
@@ -8,4 +9,13 @@
 .login {
   float: right;
   margin-right: 10px;
+}
+.container {
+  position: sticky;
+  position: -webkit-sticky;
+  z-index: 1000;
+  width: 100%;
+  top: 0;
+  z-index: 1303;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
 }
