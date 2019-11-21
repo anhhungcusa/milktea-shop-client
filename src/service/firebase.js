@@ -8,7 +8,7 @@ firebase.initializeApp(firebaseConfig)
 
 export const FirebaseService = {
     auth: firebase.auth(),
-    
+    firestore: firebase.firestore,
     db: firebase.firestore(),
     generalLV1DocRef: (collection , doc) => {
         return  FirebaseService.db.collection(collection).doc(doc)

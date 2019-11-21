@@ -10,17 +10,18 @@
 //     detail: IOrderDetail[]
 //     priceTotal: number
 //     createAt: Date
-//     paidAt: Date
+//     paidAt?: Date
 //     idMembership?: string
-//     disscount? : {
-//         code : string
+//     discount? : {
+//         id : string
 //         value: number
 //     }
-//     updateAt?: Date
+//     updateAt?: Date,
+//     idEmployee?
 // }
 
 // export interface IOrderDetail {
-//     idProduct: string,
+//     id: string,
 //     count: number,
-//     foodPrice: number
+//     price: number
 // }
