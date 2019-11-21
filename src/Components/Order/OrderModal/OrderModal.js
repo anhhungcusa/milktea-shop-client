@@ -82,9 +82,9 @@ export const OrderModal = () => {
 		})
 	}
 
-	// const handlePayment = () => {
+	const handlePayment = () => {
 
-	// }
+	}
 	return (
 		<div>
 			<Button className="btn_order1" disabled={cart.length > 0 ? false : true} onClick={() => setVisible(true)}>
@@ -100,7 +100,7 @@ export const OrderModal = () => {
 						<Button key={1} onClick={() => setVisible(false)}>Quay lại</Button>,
 						receiver.idPaymentMethod === 'dgVFdZxX89bHpPJRkNW0' ?
 							<Button key={2} disabled={!formValid} loading={isOrdering} onClick={handleOrder}>Đặt hàng</Button> :
-							<Button key={2} disabled={!formValid} loading={isOrdering} onClick={handleOrder}> Thanh toán và đặt hàng</Button>
+							<Button key={2} disabled={!formValid} loading={isOrdering} onClick={handlePayment}> Thanh toán và đặt hàng</Button>
 					]
 				}
 			>
