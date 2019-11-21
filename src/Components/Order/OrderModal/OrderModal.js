@@ -12,7 +12,7 @@ const formItemLayout = {
 
 export const OrderModal = () => {
 	let { store: { paymentMethod } } = useContext(DataContext);
-    const [ state, setState ] = useState({ visible: false });
+	const [ state, setState ] = useState({ visible: false });
 	const [selectMethod, setSelectMethod] = useState(0);
 	const onChangeSelectedMethod = value => setSelectMethod(value);
 	return (

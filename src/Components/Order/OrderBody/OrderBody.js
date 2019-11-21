@@ -8,22 +8,26 @@ import { OrderModal } from '../OrderModal/OrderModal';
 import { ReactComponent as Plus } from '../../../Asset/Image/plus.svg';
 import { ReactComponent as Increase } from '../../../Asset/Image/plus1.svg';
 import { ReactComponent as Decrease } from '../../../Asset/Image/minus (1).svg';
-import { findItemNameByID, formatVND } from '../../../utils';
+import { findItemNameByID, formatVND, checkTimeActive } from '../../../utils';
+
 const { Meta } = Card;
 
 export const OrderBody = () => {
 	let {
-		store: { products, productCategories, cart },
+		store: { products, productCategories, cart, timeStore },
 		action: { cart: { addProduct, updateCountInCart } }
 	} = useContext(DataContext);
-	const totalPrice = useMemo(() => {
-		let total = cart.reduce((acc, curr) => {
-			const price = curr.count * curr.price
-			return acc + price
-		}, 0)
-		return total
-	}, [cart])
-	// handle add product to card
+	const totalPrice = useMemo(
+		() => {
+			let total = cart.reduce((acc, curr) => {
+				const price = curr.count * curr.price;
+				return acc + price;
+			}, 0);
+			return total;
+		},
+		[ cart ]
+	);
+
 	const handleAddProduct = (product) => {
 		addProduct(product);
 	};
@@ -32,31 +36,34 @@ export const OrderBody = () => {
 		updateCountInCart(id, value);
 	};
 
+	// handle disable button "order" follow timeStore
+	const handleDisableButton = useMemo(() => {
+		return checkTimeActive(timeStore.start, timeStore.end, timeStore.status)
+	}, [timeStore.end, timeStore.start, timeStore.status])
 	return (
 		<div className="order">
 			<div className="order-item">
-				<div className="title">
-					<h2>Menu</h2>
-				</div>
-				<div className="listcategory">
-					{productCategories.map((item) => (
-						<div key={item.id} className="list-itemCategory">
-							{findItemNameByID(productCategories,item.id)}
-						</div>
-					))}
+				<div className="menu_order">
+					<div className="title">
+						<h2>Menu</h2>
+					</div>
+					<div className="listcategory">
+						{productCategories.map((item) => (
+							<div key={item.id} className="list-itemCategory">
+								{findItemNameByID(productCategories, item.id)}
+							</div>
+						))}
+					</div>
 				</div>
 			</div>
 			<div className="order-item">
 				<div className="order-center">
 					{productCategories.map((category1) => (
 						<div key={category1.id} className="list-cate">
-							<h2>
-							{findItemNameByID(productCategories,category1.id)}
-								</h2>
+							<h2>{findItemNameByID(productCategories, category1.id)}</h2>
 							<div className="pro-1">
 								{products.filter((product) => product.categoryId === category1.id).map((item) => (
 									<div key={item.id} className="list-itemproduct">
-
 										<Card
 											key={item.id}
 											className="grid-item1"
@@ -101,7 +108,7 @@ export const OrderBody = () => {
 										/>
 									</div>
 									<div className="countid">{item.count}</div>
-									<div className="descrease pointer"> 
+									<div className="descrease pointer">
 										<Decrease
 											className="decrease"
 											height="20px"
@@ -109,7 +116,7 @@ export const OrderBody = () => {
 											onClick={() => handleUpdateCount(item.id, -1)}
 										/>
 									</div>
-									<div className="product-name">{findItemNameByID(products,item.id)}</div>
+									<div className="product-name">{findItemNameByID(products, item.id)}</div>
 									<div className="product-price">{item.count * item.price}</div>
 								</div>
 							))}{' '}
@@ -118,12 +125,14 @@ export const OrderBody = () => {
 					<div className="total">
 						<div className="total-title">
 							<div className="total-item">
-							<h2>Tổng Cộng</h2>
+								<h2>Tổng Cộng</h2>
 							</div>
-							<div className="total-item"><h2>{formatVND(totalPrice)} VNĐ</h2></div>
+							<div className="total-item">
+								<h2>{formatVND(totalPrice)} VNĐ</h2>
+							</div>
 						</div>
 						<div className="btn_order">
-							<OrderModal wrapClassName="btn_order1"/>
+							 <OrderModal  handleDisableButton={handleDisableButton} wrapClassName="btn_order1" />
 						</div>
 					</div>
 				</div>

@@ -1,9 +1,11 @@
 import React from 'react';
 import './IntroductBody2.css';
+import { TimeStore } from '../../../TimeStore/TimeStore';
 export const IntroductBody2 = () => {
 	return (
 		<div>
 			<div className="body2">
+				<TimeStore/>
 				<div className="content11">
 					<h1>Thành Tựu Đạt Được</h1>
 					<div />

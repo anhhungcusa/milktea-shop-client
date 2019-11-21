@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './HomeBody.css';
 import 'antd/dist/antd.css';
+import  { TimeStore }  from '../../TimeStore/TimeStore';
 import { DataContext } from '../../../context/DataProvider';
 import { Card } from 'antd';
 
 const { Meta } = Card;
 
 export const HomeBody = () => {
-	let { store: { products } } = useContext(DataContext);
+	let { store: { products }} = useContext(DataContext);
 	// console.log('product', products);
 	// console.log('cate', productCategories);
 	// findcategoryNameById
@@ -31,6 +32,7 @@ export const HomeBody = () => {
 						<h2>SẢN PHẨM NỔI BẬT</h2>
 						<img alt="err" src="//theme.hstatic.net/1000360860/1000486980/14/home_line.png?v=1359" />
 					</div>
+					<TimeStore/>
 					{/* show 8 products */}
 					<div className="section-content">
 						<div className="grid-container">

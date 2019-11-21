@@ -10,6 +10,13 @@
     text-align: left;
     /* margin-left: 20px; */
 }
+.body .grid-item .menu {
+    /* border: 1px solid black; */
+    position: sticky;
+    position: -webkit-sticky;
+    top: 12%;
+    left: 5%;
+}
 .body .grid-item .title h2{
     color: #d3b673;
 

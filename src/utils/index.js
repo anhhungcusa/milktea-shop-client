@@ -25,3 +25,14 @@ export const formatVND = value => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',
 
 export const deleteformatVND = value => value.replace(/\$\s?|(,*)/g, '')
 
+export const checkTimeActive = (start, end , status) => {
+    var currentDate = new Date();
+		var timeNow = currentDate.getHours();
+		if(status === false) return false
+		if(timeNow <= end && timeNow >= start ) {
+			return true;
+		}
+		else {
+			return false;
+		}
+}

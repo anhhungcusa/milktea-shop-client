@@ -1,0 +1,24 @@
+.time-Store {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 8%;
+    z-index: 1000;
+    margin-top: 50px;
+}
+.time-Store .timeStore {
+    /* border: 1px solid black; */
+    display: flex;
+    align-content: flex-start;
+    margin-left: 6%;
+    margin-bottom: 2%;
+
+}
+.timeStore h2 {
+    font-size: 15px;
+    font-weight: 500;
+    /* border: 1px solid black; */
+    padding: 5px;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
+}

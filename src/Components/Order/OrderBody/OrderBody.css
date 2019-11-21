@@ -2,9 +2,13 @@
 .order {
     display: grid;
     grid-template-columns: 0.5fr 1.8fr 0.7fr;
-    /* padding: 10px; */
-    /* margin-top: 20px; */
     background-color: blanchedalmond;
+}
+.order .order-item .menu_order {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 12%;
+    left: 5%;
 }
 .order .order-item {
     background-color: rgba(255, 255, 255, 0.8);
@@ -66,6 +70,10 @@
     background: #eae3e359;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     /* border: 1px solid black; */
+    position: sticky;
+    position: -webkit-sticky;
+    top: 13%;
+    left: 5%;
 }
 .cart .cart-title {
     font-size: 25px;
