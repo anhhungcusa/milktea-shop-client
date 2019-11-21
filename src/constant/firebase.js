@@ -4,7 +4,8 @@ export const collections = {
 	orders: 'orders',
 	users: 'users',
 	membership: 'memberships',
-	types: 'types'
+	types: 'types',
+	carts: 'carts'
 };
 
 export const types_docs = {
