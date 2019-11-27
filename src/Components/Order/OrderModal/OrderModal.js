@@ -28,7 +28,7 @@ export const OrderModal = () => {
 	const onChangeReceiver = ({ target: { name, value } }) => {
 		let realValue = value
 		if (name === 'phoneNumber' && !checkIsNaN(+realValue) && realValue !== '' && realValue[0] !== '0') {
-			realValue = Math.floor(+value)
+			realValue = Math.floor(+value).toString()
 		}
 		setReceiver({
 			...receiver,
