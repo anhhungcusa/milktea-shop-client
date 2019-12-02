@@ -7,6 +7,20 @@
     border: 1px solid #d3b673; 
     transition: all 0.3s ease; 
 }
+h4 {
+    font-size: 16px;
+    color: brown;
+}
+.row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 0.5fr;
+}
+.label {
+    text-align: right;
+}
+.label h5 {
+    margin-right: 20px;
+}
 /* .Information {
     display: grid;
     grid-template-columns: 0.3fr 0.3fr 0.3fr 1.4fr 0.7fr ;

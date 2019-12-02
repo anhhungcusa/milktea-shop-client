@@ -5,7 +5,8 @@ export const collections = {
 	users: 'users',
 	membership: 'memberships',
 	types: 'types',
-	carts: 'carts'
+	carts: 'carts',
+	rewards: 'rewards'
 };
 
 export const types_docs = {

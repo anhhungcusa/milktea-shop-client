@@ -17,13 +17,14 @@ import { FirebaseService } from '../../../service/firebase';
 const { Step } = Steps;
 const { TabPane } = Tabs;
 
-
 function onChange(e) {
 }
 
 
 export const Login = () => {
-	const { action: { auth: { signIn } } } = useContext(DataContext);
+	const { store: { isLoggedIn, membership }, action: { auth: { signIn } } } = useContext(DataContext);
+
+
 	// handle open/close model
 	const [lgShow, setLgShow] = useState(false);
 	// handle tabs
@@ -165,6 +166,7 @@ export const Login = () => {
 			switch (status) {
 				case 200:
 					message.success('Đăng nhập thành công', 1)
+					setLgShow(false);
 					break;
 				case 401:
 					message.error('Tài khoản của bạn đã bị khóa', 1)
@@ -174,6 +176,9 @@ export const Login = () => {
 					break;
 			}
 		})
+	}
+	const handlelogout = () => {
+		
 	}
 	const handleSignUp = async () => {
 		setIsRegistering(true)
@@ -199,6 +204,7 @@ export const Login = () => {
 			})
 			setIsRegistering(false)
 			message.success('Đăng ký thành công!')
+			setLgShow(false)
 		} catch (error) {
 			setIsRegistering(false)
 			if (error.code === "auth/email-already-in-use") {
@@ -352,12 +358,24 @@ export const Login = () => {
 	};
 	return (
 		<>
-			<Avatar size="large" />
-			<Button id="sign-in" size="small" onClick={() => setLgShow(true)}
-				style={{ marginLeft: 16, verticalAlign: 'middle' }}>
-				Login
-			</Button>
-
+			{!isLoggedIn && (
+				<Avatar size="large" style={{ backgroundColor: '#f56a00', verticalAlign: 'middle' }}>None</Avatar>
+			)}
+			{isLoggedIn && (
+				<Avatar size="large" style={{ backgroundColor: '#00a2ae', verticalAlign: 'middle' }}>{membership.name.slice(0, 1)}</Avatar>
+			)}
+			{!isLoggedIn && (
+				<Button id="sign-in" size="small" onClick={() => setLgShow(true)}
+					style={{ marginLeft: 16, verticalAlign: 'middle' }}>
+					Login
+				</Button>
+			)}
+			{isLoggedIn && (
+				<Button id="sign-out" size="small" onClick={}
+					style={{ marginLeft: 16, verticalAlign: 'middle' }}>
+					logout
+				</Button>
+			)}
 			<Modal
 				width="1000px"
 				style={{ padding: 0 }}

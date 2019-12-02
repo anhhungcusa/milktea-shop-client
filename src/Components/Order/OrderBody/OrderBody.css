@@ -1,8 +1,10 @@
 /* left */
+/* .body_order {
+    background-color: blanchedalmond;
+} */
 .order {
     display: grid;
     grid-template-columns: 0.5fr 1.8fr 0.7fr;
-    background-color: blanchedalmond;
 }
 .order .order-item .menu_order {
     position: sticky;
