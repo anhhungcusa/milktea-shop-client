@@ -25,20 +25,20 @@ export const Modal2 = () => {
 				}
 			>
 				<Meta
-					title="Thị trường trà sữa Việt: Thương hiệu nào là  'Chuẩn'?"
+					title="Thị trường trà sữa Việt: thương hiệu nào là  'Chuẩn'?"
 					description="Theo thống kê của Hiệp hội doanh nghiệp vừa và nhỏ Việt Nam, hiện cả nước có gần 2.000 điểm bán trà sữa và cứ 4 ngày có thêm một quán trà sữa xuất hiện ở các tỉnh, 
 							thành phố đặc biệt là tại các thành phố lớn. Cùng với đó là sự xuất hiện của hàng chục thương hiệu trà sữa đến từ Đài Loan, Singapore, Malaysia…"
 				/>
 			</Card>
 			<Modal
-				title="Câu Chuyện Thương Hiệu"
+				title="Câu truyện thương hiệu"
 				width="1000px"
 				visible={!lgShow}
 				onOk={() => setLgShow(!lgShow)}
 				onCancel={() => setLgShow(!lgShow)}
 			>
 				<div className="contentmodal">
-					<h2>Thị trường trà sữa Việt: Thương hiệu nào là “chuẩn”?</h2>
+					<h2>Thị trường trà sữa Việt: thương hiệu nào là “chuẩn”?</h2>
 					<img
 						alt="not found"
 						src="https://file.hstatic.net/1000360860/file/27.1_d475213ec4034fb2a881c31304a6c773_grande.jpg"
@@ -87,7 +87,7 @@ export const Modal2 = () => {
 						sức đa dạng, từ Thái Lan, Đài Loan, Hàn Quốc, Nhật… Tất cả được xếp chồng chất, thành hàng dài
 						và giá bán rất rẻ.
 					</h5>
-					<h4>Thương hiệu nào là “chuẩn”?</h4>
+					<h4>thương hiệu nào là “chuẩn”?</h4>
 					<h5>
 						Theo Quy định của Bộ Y tế và các bộ ngành liên quan, để có đủ điều kiện cho việc kinh doanh trà
 						sữa, doanh nghiệp bắt buộc phải đáp ứng các yêu cầu cơ bản: Có giấy phép kinh doanh ngành nghề
@@ -106,9 +106,9 @@ export const Modal2 = () => {
 						Nếu nhìn chung về các thương hiệu trà sữa tại TP Hà Nội và TP.HCM, gần đây nhiều khách hàng nằm
 						trong trào lưu “trà sữa” rất ít còn tình trạng “thấy quán nào, ngồi quán đó” theo thói quen mà
 						bắt đầu chuyển sang lựa chọn các điểm bán trà sữa có thương hiệu và uy tín. “Một trong các điểm
-						đến của nhóm bạn mình là những quán trà sữa mang thương hiệu TOCOTOCO” – Nguyễn Thùy Linh, SV
+						đến của nhóm bạn mình là những quán trà sữa mang thương hiệu Oal Milk Tea” – Nguyễn Thùy Linh, SV
 						trường Đại học Ngoại thương Hà Nội chia sẻ. Việc lựa chọn của Linh, nhóm bạn và nhiều khách hàng
-						khác của gần 200 điểm bán hàng TOCOTOCO trên toàn quốc được cho là sự lựa chọn chuẩn khi nhiều
+						khác của gần 200 điểm bán hàng Oal Milk Tea trên toàn quốc được cho là sự lựa chọn chuẩn khi nhiều
 						cơ quan chức năng trong đã chứng nhận: Tất cả quy trình sản xuất, thiết bị pha chế được giám sát
 						nghiêm ngặt. Các nguyên liệu như trân châu, trà, sữa non… đều có chứng nhận bởi Bộ Y tế, cơ quan
 						an toàn thực phẩm… dù bất kể đó là sản phẩm nguyên chất từ Việt Nam hay nhập khẩu từ nước
@@ -119,10 +119,10 @@ export const Modal2 = () => {
 						src="https://file.hstatic.net/1000360860/file/27.4_50ea3205c7f24fe5a17abf212a7fc8eb_grande.jpg"
 					/>
 					<h5>
-						Theo tìm hiểu của PV, thương hiệu trà sữa TocoToco được thành lập bởi công ty cổ phần TMDV Taco
+						Theo tìm hiểu của PV, thương hiệu trà sữa Oal Milk Tea được thành lập bởi công ty cổ phần TMDV Taco
 						Việt Nam, với cửa hàng đầu tiên được mở tại phố Bạch Mai, Hà Nội, năm 2013. Sau 5 năm ra mắt,
-						giờ đây TocoToco đã là một tên tuổi thuộc hàng “top” trong thị trường trà sữa Việt Nam, một cái
-						tên bảo chứng cho cả vị ngon và chất lượng. Được biết, năm 2017, thương hiệu trà sữa TocoToco
+						giờ đây Oal Milk Tea đã là một tên tuổi thuộc hàng “top” trong thị trường trà sữa Việt Nam, một cái
+						tên bảo chứng cho cả vị ngon và chất lượng. Được biết, năm 2017, thương hiệu trà sữa Oal Milk Tea
 						vừa được vinh danh trong top 10 thương hiệu, sản phẩm, dịch vụ hàng đầu Việt Nam 2017 do Viện
 						Công nghệ chống làm hàng giả, Hiệp hội chống làm hàng giả, bảo vệ thương hiệu Việt Nam, Cục Quản
 						lý thị trường, Trung tâm phát triển tài sản trí tuệ tổ chức.

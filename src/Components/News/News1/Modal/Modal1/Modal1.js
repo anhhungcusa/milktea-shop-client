@@ -32,7 +32,7 @@ export const Modal1 = () => {
 				/>
 			</Card>
 			<Modal 
-			title="Câu Chuyện Thương Hiệu"
+			title="Câu truyện thương hiệu"
 			width="1000px"
 			visible={!lgShow}
 			onOk={() => setLgShow(!lgShow)}
@@ -56,11 +56,11 @@ export const Modal1 = () => {
 					</h5>
 					<img alt="not found" src="https://file.hstatic.net/1000360860/file/33.3_ff2cf175dce145fc8b0bcf590bf2428d_grande.jpg"/>
 					<h5>
-					Khi đã hiểu hơn về trà sữa trân châu – đồ uống “vạn người mê” này, thì đừng chậm trễ mà hãy đến ngay TocoToco Bubble Tea – thương hiệu trà sữa Việt với hệ thống hơn 200 cửa hàng trong và ngoài nước.
+					Khi đã hiểu hơn về trà sữa trân châu – đồ uống “vạn người mê” này, thì đừng chậm trễ mà hãy đến ngay Oal Milk Tea Bubble Tea – thương hiệu trà sữa Việt với hệ thống hơn 200 cửa hàng trong và ngoài nước.
 
-					Trân châu tại TocoToco được sản xuất dưới dạng hạt tròn và sợi. Quá trình tạo ra trân châu cũng thật sự cầu kỳ. Tinh bột sắn sau khi được nhào với nước theo “tỷ lệ vàng” để tránh sự nhão hoặc cứng sẽ được mang đi 
-					nấu ở nhiệt độ cao. Nghệ nhân TocoToco phải đảo cho thật đều tay để những hạt trân châu không bị dính vào nhau, cuối cùng cho ngâm với nước lọc.
-					Những hạt trân châu đen nhánh, dẻo bùi hay những sợi trân châu vàng óng sẽ được ngâm với mật ong. Topping trân châu TocoToco đều được tán dương khi luôn ngọt ngào và đem lại những trải nghiệm thú vị cho khách hàng.
+					Trân châu tại Oal Milk Tea được sản xuất dưới dạng hạt tròn và sợi. Quá trình tạo ra trân châu cũng thật sự cầu kỳ. Tinh bột sắn sau khi được nhào với nước theo “tỷ lệ vàng” để tránh sự nhão hoặc cứng sẽ được mang đi 
+					nấu ở nhiệt độ cao. Nghệ nhân Oal Milk Tea phải đảo cho thật đều tay để những hạt trân châu không bị dính vào nhau, cuối cùng cho ngâm với nước lọc.
+					Những hạt trân châu đen nhánh, dẻo bùi hay những sợi trân châu vàng óng sẽ được ngâm với mật ong. Topping trân châu Oal Milk Tea đều được tán dương khi luôn ngọt ngào và đem lại những trải nghiệm thú vị cho khách hàng.
 					</h5>
 				</div>
 			</Modal>

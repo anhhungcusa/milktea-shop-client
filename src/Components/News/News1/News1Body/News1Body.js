@@ -13,7 +13,7 @@ export const News1Body = () => {
 			<TimeStore className=".timeStore-news1"/>
 			<div className="news1">
 				<div className="label">
-					<h2>Câu Chuyện Thương Hiệu</h2>
+					<h2>Câu truyện thương hiệu</h2>
 				</div>
 				<div className="row1">
 					<div className="rowItem">

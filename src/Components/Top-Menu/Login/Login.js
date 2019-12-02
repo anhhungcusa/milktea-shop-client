@@ -374,7 +374,7 @@ export const Login = () => {
 								<Man className="man" height="150px" width="150px" />
 							</div>
 							<div className="title">
-								<h3>Chào Mừng Đến Với AOL Milktea</h3>
+								<h3>Chào Mừng Đến Với Oal Milk Tea</h3>
 							</div>
 							<div className="input">
 								<input

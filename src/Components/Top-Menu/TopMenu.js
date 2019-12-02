@@ -37,7 +37,7 @@ export const TopMenu = () => {
 
 				<SubMenu title={<span className="submenu-title-wrapper">Tin Tức</span>}>
 					<Menu.Item key="news1">
-						<Link to="/news1">Câu Chuyện Thương Hiệu</Link>
+						<Link to="/news1">Câu truyện thương hiệu</Link>
 					</Menu.Item>
 					{/* <Menu.Item key="news2">
 						<Link to="news2">Tin Tức Khuyến Mãi</Link>

@@ -7,7 +7,7 @@ export const ProductHeader = () => {
 				<div className="intro-main1">
 					<div className="intro-main2" />
 					<div className="side1-content">
-						<h3>AOL Menu</h3>
+						<h1>Oal Menu</h1>
 					</div>
 				</div>
 			</div>

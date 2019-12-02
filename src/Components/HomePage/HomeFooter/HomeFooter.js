@@ -57,8 +57,7 @@ export const HomeFooter = () => {
 							<h3>Về Chúng Tôi</h3>
 							<ul className="no-bullets">
 								<li>
-									{/* <svg /> */}
-									<h4>Giới Thiệu về AOL Milk Tea</h4>
+									<h4>Giới Thiệu về Oal Milk Tea</h4>
 								</li>
 								<li>
 									<h4>Nhượng Quyền</h4>

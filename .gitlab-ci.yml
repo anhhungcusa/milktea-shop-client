@@ -32,6 +32,7 @@ deploy as review app:
   stage: deploy
   only:
     - master
+    - feature/SEO
   environment:
     name: review/$CI_COMMIT_REF_NAME
     url: https://oalmilktea.web.app

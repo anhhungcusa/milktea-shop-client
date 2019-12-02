@@ -7,7 +7,7 @@ export const News1Header = () => {
 				<div className="intro-main1">
 					<div className="intro-main2" />
 					<div className="side1-content">
-						<h3>Câu Chuyện Thương Hiệu</h3>
+						<h3>Câu truyện thương hiệu</h3>
 					</div>
 				</div>
 			</div>

@@ -26,7 +26,7 @@ export const Modal4 = () => {
 			>
 				<Meta
 					title="Hé lộ chặng đường tạo ra một ly trà sữa Ola Milktea ngon đúng điệu"
-					description="Uống trà sữa ngon, nhưng liệu bạn đã tường tận quá trình biến những nguyên liệu thô thành những ly trà sữa thơm ngon, tốt cho sức khỏe và ngập tràn tiếng cười hạnh phúc của TocoToco?"
+					description="Uống trà sữa ngon, nhưng liệu bạn đã tường tận quá trình biến những nguyên liệu thô thành những ly trà sữa thơm ngon, tốt cho sức khỏe và ngập tràn tiếng cười hạnh phúc của Oal Milk Tea?"
 				/>
 			</Card>
 			<Modal
@@ -37,14 +37,14 @@ export const Modal4 = () => {
 				onCancel={() => setLgShow(!lgShow)}
 			>
 				<div className="contentmodal">
-					<h2>Hé lộ chặng đường tạo ra một ly trà sữa TocoToco ngon đúng điệug</h2>
+					<h2>Hé lộ chặng đường tạo ra một ly trà sữa Oal Milk Tea ngon đúng điệug</h2>
 					<img
 						alt="not found"
 						src="https://file.hstatic.net/1000360860/file/17.5_1dd21feafb5948319679b8860aef893a_grande.jpg"
 					/>
 					<h4>
 						Uống trà sữa ngon, nhưng liệu bạn đã tường tận quá trình biến những nguyên liệu thô thành những
-						ly trà sữa thơm ngon, tốt cho sức khỏe và ngập tràn tiếng cười hạnh phúc của TocoToco?
+						ly trà sữa thơm ngon, tốt cho sức khỏe và ngập tràn tiếng cười hạnh phúc của Oal Milk Tea?
 					</h4>
 					<img
 						alt="not found"
@@ -52,7 +52,7 @@ export const Modal4 = () => {
 					/>
 					<h4>Tìm kiếm các vùng nguyên liệu trên mảnh đất Việt Nam</h4>
 					<h5>
-						TocoToco sử dụng loại trà xanh được trồng trên vùng núi mát mẻ, có sương mù độ cao trên 1000m
+						Oal Milk Tea sử dụng loại trà xanh được trồng trên vùng núi mát mẻ, có sương mù độ cao trên 1000m
 						tại Việt Nam. Trà được hái bằng tay, định kì 45 ngày một lần và được hái sau khi tan sương vào
 						buổi sáng, không hái vào trời nắng gắt hoặc vào những ngày trời mưa. Đặc biệt, trà chỉ được dùng
 						pha chế trong ngày nên luôn đảm bảo được độ đạt chuẩn về hương vị và giá trị dinh dưỡng.
@@ -62,8 +62,8 @@ export const Modal4 = () => {
 						src="https://file.hstatic.net/1000360860/file/19.8_6ec0d37f072749b28989621529be1d74_grande.jpg"
 					/>
 					<h5>
-						TocoToco sử dụng sữa bột ngọt thơm và có độ ngậy hấp dẫn. Đặc biệt dòng kem phô mai TocoToco sử
-						dụng là cream cheese Anchor nức danh ở New Zealand. Topping trân châu tại TocoToco đạt tới độ
+						Oal Milk Tea sử dụng sữa bột ngọt thơm và có độ ngậy hấp dẫn. Đặc biệt dòng kem phô mai Oal Milk Tea sử
+						dụng là cream cheese Anchor nức danh ở New Zealand. Topping trân châu tại Oal Milk Tea đạt tới độ
 						dẻo bùi thời thượng do được làm từ tinh bột sắn nguyên chất tại Việt Nam.
 					</h5>
 					<h4>Chỉn chu từ những khâu nhỏ nhất</h4>
