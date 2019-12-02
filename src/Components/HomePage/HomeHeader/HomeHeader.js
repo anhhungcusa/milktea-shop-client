@@ -8,10 +8,10 @@ export const HomeHeader = () => {
 				<div className="home-main1">
 					<div className="home-main2" />
 					<div className="side-content">
-						<h3>Oal Milk Tea</h3>
+						<h1>Oal Milk Tea</h1>
 						<div className="slide-bold-text">Trà Sữa Của Hạnh Phúc</div>
 						<div className="slide-light-text">
-							Với sứ mệnh mang tới niềm vui và hạnh phúc, OAL hy vọng sẽ tạo nên một nét văn hóa giải trí
+							Với sứ mệnh mang tới niềm vui và hạnh phúc, Oal hy vọng sẽ tạo nên một nét văn hóa giải trí
 							bên cạnh ly trà sữa Ngon - Sạch - Tươi
 						</div>
 						<div className="slide-btn">
@@ -21,8 +21,6 @@ export const HomeHeader = () => {
 							<div className="slide-btn2">
 								<Link to="/product">Đặt Hàng Ngay</Link>
 							</div>
-							{/* <a className="slide-btn1">Tìm Hiểu Thêm</a>
-							<a className="slide-btn2">Đặt Hàng Ngay</a> */}
 						</div>
 					</div>
 				</div>

@@ -1,10 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet'
 import './Order.css';
 import { OrderBody } from './OrderBody/OrderBody';
 export const Order = () => {
-    return(
+    return (
         <div>
-            <OrderBody/>
+            <Helmet>
+                <title>Oal Milk Tea - Order</title>
+            </Helmet>
+            <OrderBody />
         </div>
     )
 }

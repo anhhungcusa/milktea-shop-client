@@ -26,15 +26,15 @@ export const Modal3 = () => {
 			>
 				<Meta
 					title="Mục sở thị công việc của các chuyên gia R&D Ola Milktea"
-					description="Để có một đồ uống chất lượng được đưa tới tay khách hàng, bộ phận R&D (phát triển sản phẩm) TocoToco đã phải trải qua những ngày dài dày công nghiên cứu lặng thầm mà không phải ai cũng biết đến.
-							Vai trò của R&D tại TocoToco là gì?
+					description="Để có một đồ uống chất lượng được đưa tới tay khách hàng, bộ phận R&D (phát triển sản phẩm) Oal Milk Tea đã phải trải qua những ngày dài dày công nghiên cứu lặng thầm mà không phải ai cũng biết đến.
+							Vai trò của R&D tại Oal Milk Tea là gì?
 
-							Một sản phẩm được nằm trong danh sách menu TocoToco không phải là điều dễ dàng, bởi ngoài độ ngon là chưa đủ, đồ uống đó còn phải thật sự an toàn, chất lượng và tốt cho sức khoẻ. 
+							Một sản phẩm được nằm trong danh sách menu Oal Milk Tea không phải là điều dễ dàng, bởi ngoài độ ngon là chưa đủ, đồ uống đó còn phải thật sự an toàn, chất lượng và tốt cho sức khoẻ. 
 							Và bộ phận đảm nhận công việc tìm ra những đồ uống đó là phòng R&D."
 				/>
 			</Card>
 			<Modal
-				title="Câu Chuyện Thương Hiệu"
+				title="Câu truyện thương hiệu"
 				width="1000px"
 				visible={!lgShow}
 				onOk={() => setLgShow(!lgShow)}
@@ -48,12 +48,12 @@ export const Modal3 = () => {
 					/>
 					<h4>
 						Để có một đồ uống chất lượng được đưa tới tay khách hàng, bộ phận R&D (phát triển sản phẩm)
-						TocoToco đã phải trải qua những ngày dài dày công nghiên cứu lặng thầm mà không phải ai cũng
+						Oal Milk Tea đã phải trải qua những ngày dài dày công nghiên cứu lặng thầm mà không phải ai cũng
 						biết đến.
 					</h4>
 					<h4>Vai trò của R&D tại Ola Milktea là gì?</h4>
 					<h5>
-						Một sản phẩm được nằm trong danh sách menu TocoToco không phải là điều dễ dàng, bởi ngoài độ
+						Một sản phẩm được nằm trong danh sách menu Oal Milk Tea không phải là điều dễ dàng, bởi ngoài độ
 						ngon là chưa đủ, đồ uống đó còn phải thật sự an toàn, chất lượng và tốt cho sức khoẻ. Và bộ phận
 						đảm nhận công việc tìm ra những đồ uống đó là phòng R&D.
 					</h5>
@@ -64,14 +64,14 @@ export const Modal3 = () => {
 					<h5>
 						R&D (tên tiếng Anh là Research and Development) là bộ phận “nghiên cứu và phát triển”. Trong
 						ngành F&B (dịch vụ nhà hàng và đồ uống), R&D có vai trò nghiên cứ và phát triển để cho ra đời
-						những sản phẩm mới. Tại TocoToco, R&D sẽ đảm nhận vai trò tìm ra những đồ uống mới bắt kịp xu
+						những sản phẩm mới. Tại Oal Milk Tea, R&D sẽ đảm nhận vai trò tìm ra những đồ uống mới bắt kịp xu
 						hướng, có diện mạo, công dụng cũng như thành phần mới. Ngoài ra, phòng ban này còn thực hiện quá
 						trình cải thiện và nâng cao chất lượng của những đồ uống hiện có của thương hiệu để phù hợp và
 						theo kịp thị hiếu của khách hàng.
 					</h5>
 					<h4>R&D Ola Milktea – Một trong những chìa khoá thành công của thương hiệu</h4>
 					<h5>
-						Tại TocoToco, R&D được coi là một trong những chìa khoá làm nên thành công của thương hiệu. Việc
+						Tại Oal Milk Tea, R&D được coi là một trong những chìa khoá làm nên thành công của thương hiệu. Việc
 						cho ra đời sản phẩm mới, hay cải tiến những đồ uống đã có đều là những mảnh ghép không thể
 						thiếu, là một trong những yếu tố quyết định việc sự nhìn nhận, đánh giá của khách hàng đối với
 						sản phẩm, cũng như quyết định họ sẽ tiếp tục ủng hộ hay từ bỏ thương hiệu.
@@ -101,7 +101,7 @@ export const Modal3 = () => {
 					<h4>Đổi mới hay cải tiến vẫn phải giữ nguyên giá trị cốt lõi</h4>
 					<h5>
 						Sử dụng phương châm lấy “giá trị cốt lõi” của thương hiệu làm nền tảng để phát triển sản phẩm,
-						các đồ uống tại TocoToco dù mới hay cải tiến từ sản phẩm đã có đều phải trải qua quá trình kiểm
+						các đồ uống tại Oal Milk Tea dù mới hay cải tiến từ sản phẩm đã có đều phải trải qua quá trình kiểm
 						định chất lượng nghiêm ngặt, khi đã đạt chuẩn thì mới được đem ra sử dụng.
 					</h5>
 					<img
@@ -110,18 +110,18 @@ export const Modal3 = () => {
 					/>
 					<h5>
 						Các chuyên gia R&D mỗi ngày vẫn miệt mài trên hành trình tìm kiếm các vùng nguyên liệu. Là một
-						thương hiệu Việt, TocoToco chủ trương ưu tiên sử dụng các nguyên liệu thuần Việt để tạo nên các
-						đồ uống. Các nguyên liệu từ trà hay tinh bột sắn TocoToco đều được ươm trồng và sản xuất tại
+						thương hiệu Việt, Oal Milk Tea chủ trương ưu tiên sử dụng các nguyên liệu thuần Việt để tạo nên các
+						đồ uống. Các nguyên liệu từ trà hay tinh bột sắn Oal Milk Tea đều được ươm trồng và sản xuất tại
 						Việt Nam, đạt chuẩn về giá trị dinh dưỡng cũng như hương vị quê hương trong từ ly thành phẩm.
-						Nhờ chủ trương này, TocoToco đã phần lớn giải quyết được vấn đề đầu ra của các nông sản tại Việt
+						Nhờ chủ trương này, Oal Milk Tea đã phần lớn giải quyết được vấn đề đầu ra của các nông sản tại Việt
 						Nam.
 					</h5>
 					<h5>
 						Để tạo ra một ly thành phẩm đạt chuẩn đưa tới tay khách hàng, các chuyên gia pha chế tại
-						TocoToco chắc chắn không thể mắc những sai lầm cơ bản trong quá trình pha chế. Nhân viên tại cửa
+						Oal Milk Tea chắc chắn không thể mắc những sai lầm cơ bản trong quá trình pha chế. Nhân viên tại cửa
 						hàng được đào tạo chuyên sâu và trải qua quá trình kiểm tra trình độ định kỳ. Việc đảm bảo các
 						nguyên vật liệu được sử dụng đúng quy định, các vật dụng đảm bảo vệ sinh cũng như quy trình pha
-						đúng quy cách đều được kiểm tra thường xuyên. TocoToco – Thương hiệu trà sữa Việt Nam với dịch
+						đúng quy cách đều được kiểm tra thường xuyên. Oal Milk Tea – thương hiệu trà sữa Việt Nam với dịch
 						vụ thân thiện, chuyên nghiệp sẽ không ngừng cải thiện chất lượng cũng như từng ngày nghiên cứu
 						để cho ra đời những đồ uống mới đáp ứng kịp thời nhu cầu của khách hàng.
 					</h5>
