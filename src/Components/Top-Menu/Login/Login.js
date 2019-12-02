@@ -22,7 +22,7 @@ function onChange(e) {
 
 
 export const Login = () => {
-	const { store: { isLoggedIn, membership }, action: { auth: { signIn } } } = useContext(DataContext);
+	const { store: { isLoggedIn, membership }, action: { auth: { signIn, signOut } } } = useContext(DataContext);
 
 
 	// handle open/close model
@@ -177,9 +177,7 @@ export const Login = () => {
 			}
 		})
 	}
-	const handlelogout = () => {
-		
-	}
+
 	const handleSignUp = async () => {
 		setIsRegistering(true)
 		try {
@@ -371,7 +369,7 @@ export const Login = () => {
 				</Button>
 			)}
 			{isLoggedIn && (
-				<Button id="sign-out" size="small" onClick={}
+				<Button id="sign-out" size="small" onClick={() => signOut()}
 					style={{ marginLeft: 16, verticalAlign: 'middle' }}>
 					logout
 				</Button>

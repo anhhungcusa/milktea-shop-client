@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import './HomeHeader.css';
 export const HomeHeader = () => {
 	return (
-		<div>
-			<div className="home-main">
+			<div className="home-main"  onClick={() => console.log(1)}>
 				<div className="home-main1">
 					<div className="home-main2" />
 					<div className="side-content">
@@ -15,7 +14,7 @@ export const HomeHeader = () => {
 							bên cạnh ly trà sữa Ngon - Sạch - Tươi
 						</div>
 						<div className="slide-btn">
-							<div className="slide-btn1">
+							<div className="slide-btn1" >
 								<Link to="/product">Tìm Hiểu Thêm</Link>
 							</div>
 							<div className="slide-btn2">
@@ -25,6 +24,5 @@ export const HomeHeader = () => {
 					</div>
 				</div>
 			</div>
-		</div>
 	);
 };

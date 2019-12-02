@@ -94,28 +94,28 @@ export const DataProvider = ({ children }) => {
     }, []);
     // fetch rewards
     useEffect(() => {
-            if (store.membership !== null) {
-                const refReward = FirebaseService.db
-                    .collection(collections.rewards)
-                    .doc(store.membership.id)
-                    .collection('my_rewards')
-                    .where('used', '==', false)
-                    .where('expiryDate', '>=', Date.now());
+        if (store.membership !== null) {
+            const refReward = FirebaseService.db
+                .collection(collections.rewards)
+                .doc(store.membership.id)
+                .collection('my_rewards')
+                .where('used', '==', false)
+                .where('expiryDate', '>=', Date.now());
 
-                refReward.get().then((querySnapshots) => {
-                    let rewards = [];
-                    querySnapshots.docs.forEach(doc => {
-                        if (doc.data().createAt <= Date.now()) {
-                            rewards.push(doc.data())
-                        }
-                    })
-                    setStore(store => ({
-                        ...store,
-                        rewards
-                    }));
-                });
-            }
-        },
+            refReward.get().then((querySnapshots) => {
+                let rewards = [];
+                querySnapshots.docs.forEach(doc => {
+                    if (doc.data().createAt <= Date.now()) {
+                        rewards.push(doc.data())
+                    }
+                })
+                setStore(store => ({
+                    ...store,
+                    rewards
+                }));
+            });
+        }
+    },
         [store.membership]
     );
 
@@ -167,42 +167,42 @@ export const DataProvider = ({ children }) => {
                     .doc(orderx_docs.processing)
                     .collection(sub_collections.processing)
                     .where('idMembership', '==', store.membership.id).onSnapshot((querySnapshot) => {
-                    let newMyProcessingOrders = querySnapshot.docs.map((doc) => {
-                        let order = {
-                            ...doc.data(),
-                            updateAt: doc.data().updateAt.toDate(),
-                            createAt: doc.data().createAt.toDate()
-                        };
-                        if (order.paidAt !== undefined) order.paidAt = order.paidAt.toDate();
-                        return order;
+                        let newMyProcessingOrders = querySnapshot.docs.map((doc) => {
+                            let order = {
+                                ...doc.data(),
+                                updateAt: doc.data().updateAt.toDate(),
+                                createAt: doc.data().createAt.toDate()
+                            };
+                            if (order.paidAt !== undefined) order.paidAt = order.paidAt.toDate();
+                            return order;
+                        });
+                        setStore((store) => ({
+                            ...store,
+                            myProcessingOrders: [...newMyProcessingOrders]
+                        }));
+                        console.log(newMyProcessingOrders)
                     });
-                    setStore((store) => ({
-                        ...store,
-                        myProcessingOrders: [...newMyProcessingOrders]
-                    }));
-                    console.log(newMyProcessingOrders)
-                });
                 // handle for processed
                 processedOrderCol = FirebaseService.db
                     .collection(collections.orders)
                     .doc(orderx_docs.processed)
                     .collection(sub_collections.processing)
                     .where('idMembership', '==', store.membership.id).onSnapshot((querySnapshot) => {
-                    let newMyProcessedOrders = querySnapshot.docs.map((doc) => {
-                        let order = {
-                            ...doc.data(),
-                            updateAt: doc.data().updateAt.toDate(),
-                            createAt: doc.data().createAt.toDate()
-                        };
-                        if (order.paidAt !== undefined) order.paidAt = order.paidAt.toDate();
-                        return order;
+                        let newMyProcessedOrders = querySnapshot.docs.map((doc) => {
+                            let order = {
+                                ...doc.data(),
+                                updateAt: doc.data().updateAt.toDate(),
+                                createAt: doc.data().createAt.toDate()
+                            };
+                            if (order.paidAt !== undefined) order.paidAt = order.paidAt.toDate();
+                            return order;
+                        });
+                        setStore((store) => ({
+                            ...store,
+                            myProcessedOrders: [...newMyProcessedOrders]
+                        }));
+                        console.log(newMyProcessedOrders)
                     });
-                    setStore((store) => ({
-                        ...store,
-                        myProcessedOrders: [...newMyProcessedOrders]
-                    }));
-                    console.log(newMyProcessedOrders)
-                });
 
             }
             return () => {
@@ -282,6 +282,18 @@ export const DataProvider = ({ children }) => {
             return 400;
         }
     };
+    // handle Sign out 
+    const signOut = () => {
+        setStore({
+            ...store,
+            cart: [],
+            membership: null,
+            myProcessingOrders: null,
+            myProcessedOrders: null,
+            isLoggedIn: false,
+            rewards: []
+        })
+    }
     // handle Sign in
     const signIn = async (email, password) => {
         try {
@@ -387,7 +399,8 @@ export const DataProvider = ({ children }) => {
                     },
                     paymentMethod: {},
                     auth: {
-                        signIn
+                        signIn,
+                        signOut
                     },
                     orders: {
                         order
