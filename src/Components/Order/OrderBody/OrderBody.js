@@ -8,13 +8,14 @@ import { OrderModal } from '../OrderModal/OrderModal';
 import { ReactComponent as Plus } from '../../../Asset/Image/plus.svg';
 import { ReactComponent as Increase } from '../../../Asset/Image/plus1.svg';
 import { ReactComponent as Decrease } from '../../../Asset/Image/minus (1).svg';
-import { findItemNameByID, formatVND, checkTimeActive } from '../../../utils';
+import { findItemNameByID, formatVND } from '../../../utils';
+import { TimeStore } from '../../TimeStore/TimeStore';
 
 const { Meta } = Card;
 
 export const OrderBody = () => {
 	let {
-		store: { products, productCategories, cart, timeStore },
+		store: { products, productCategories, cart },
 		action: { cart: { addProduct, updateCountInCart } }
 	} = useContext(DataContext);
 	const totalPrice = useMemo(
@@ -37,10 +38,12 @@ export const OrderBody = () => {
 	};
 
 	// handle disable button "order" follow timeStore
-	const handleDisableButton = useMemo(() => {
-		return checkTimeActive(timeStore.start, timeStore.end, timeStore.status)
-	}, [timeStore.end, timeStore.start, timeStore.status])
+	// const handleDisableButton = useMemo(() => {
+	// 	return checkTimeActive(timeStore.start, timeStore.end, timeStore.status)
+	// }, [timeStore.end, timeStore.start, timeStore.status])
 	return (
+		<div className="body_order">
+		<TimeStore/>
 		<div className="order">
 			<div className="order-item">
 				<div className="menu_order">
@@ -132,11 +135,12 @@ export const OrderBody = () => {
 							</div>
 						</div>
 						<div className="btn_order">
-							 <OrderModal  handleDisableButton={handleDisableButton} wrapClassName="btn_order1" />
+							 <OrderModal  wrapClassName="btn_order1" />
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	);
 };

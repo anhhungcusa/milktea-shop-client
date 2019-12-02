@@ -1,24 +1,29 @@
 .time-Store {
     position: sticky;
     position: -webkit-sticky;
-    top: 8%;
+    top: 80%;
+    height: 100px;
+    width: 100px;
     z-index: 101;
-    margin-top: 50px;
+    /* margin-top: 30px; */
 }
 .time-Store .timeStore {
     /* border: 1px solid black; */
     display: flex;
     align-content: flex-start;
     margin-left: 6%;
-    margin-bottom: 2%;
+    margin-bottom: 20px;
+    /* margin-bottom: 2%; */
 
 }
 .timeStore h2 {
-    font-size: 15px;
+    font-size: 11px;
     font-weight: 500;
     /* border: 1px solid black; */
+    color: #EFD08D;
     padding: 5px;
     border-radius: 5px;
-    background: white;
+    background: black;
+    /* background-color: rgb(206, 193, 173); */
     box-shadow: 0 4px 4px 0 rgba(0,0,0,.1);
 }

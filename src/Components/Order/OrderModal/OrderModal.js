@@ -5,9 +5,12 @@ import './OrderModal.css';
 import { Form, Modal, Button, Input, Checkbox, Select, message } from 'antd';
 import { checkIsNaN, checkMinMax } from '../../../utils/Validates';
 import { accountLimitValue, errorMessage } from '../../../constant/account';
+import { checkTimeActive } from '../../../utils';
 
+
+const { Option } = Select;
 export const OrderModal = () => {
-	let { store: { paymentMethod, isLoggedIn, membership, cart }, action: { orders: { order } } } = useContext(DataContext);
+	let { store: { paymentMethod, isLoggedIn, membership, cart, timeStore, rewards }, action: { orders: { order } } } = useContext(DataContext);
 	const initReceiver = useMemo(_ => ({
 		name: '',
 		address: '',
@@ -36,6 +39,7 @@ export const OrderModal = () => {
 		})
 	}
 	const [visible, setVisible] = useState(false);
+	const [nextButton, setnextButton] = useState(false);
 	const [isUseMyInfo, setIsUseMyInfo] = useState(false)
 	const onChangeIsUseMyInfo = e => {
 		setIsUseMyInfo(e.target.checked)
@@ -67,12 +71,19 @@ export const OrderModal = () => {
 		delete receiverCoppy.idPaymentMethod
 		const idMembership = isLoggedIn ? membership.id : undefined
 		const discount = undefined
+		/**
+		 * {
+		 * 	value: 11,
+		 * 	idDiscount: asdasdasd
+		 * }
+		 */
 		// order(receiverCoppy, receiver.idPaymentMethod, idMembership, discount?)
 		order(receiverCoppy, receiver.idPaymentMethod, idMembership, discount).then(status => {
 			setIsOrdering(false)
 			switch (status) {
 				case 200:
 					message.success('Đặt hàng thành công', 2);
+					setnextButton(false);
 					break;
 				default:
 					message.error('Đặt hàng thất bại', 2);
@@ -85,25 +96,86 @@ export const OrderModal = () => {
 	const handlePayment = () => {
 
 	}
+
+		const handleDisableButton = useMemo(() => {
+		return checkTimeActive(timeStore.start, timeStore.end, timeStore.status)
+	}, [timeStore.end, timeStore.start, timeStore.status])
 	return (
 		<div>
-			<Button className="btn_order1" disabled={cart.length > 0 ? false : true} onClick={() => setVisible(true)}>
+			<Button className="btn_order1" disabled={(cart.length > 0 && handleDisableButton ) ? false : true} onClick={() => setVisible(true)}>
 				ĐẶT HÀNG
 			</Button>
+			{handleDisableButton ? "" : (
+				<h4>Cữa hàng hiện đóng cửa, vui lòng quay lại sau!</h4>
+			)}
 			<Modal
 				title="Thông Tin Người Nhận"
 				visible={visible}
-				onOk={() => setVisible(false)}
+				// onOk={() => setVisible(false)}
 				onCancel={() => setVisible(false)}
 				footer={
 					[
 						<Button key={1} onClick={() => setVisible(false)}>Quay lại</Button>,
 						receiver.idPaymentMethod === 'dgVFdZxX89bHpPJRkNW0' ?
-							<Button key={2} disabled={!formValid} loading={isOrdering} onClick={handleOrder}>Đặt hàng</Button> :
+							<Button key={2} disabled={!formValid} loading={isOrdering} onClick={() => setnextButton(true)}>Tiếp Theo</Button> :
 							<Button key={2} disabled={!formValid} loading={isOrdering} onClick={handlePayment}> Thanh toán và đặt hàng</Button>
 					]
 				}
 			>
+				{/* method pay: cash. When click next button show modal below */}
+				<Modal 
+					// width="700px"
+					title="Chi tiết đơn hàng"
+					visible={nextButton}
+					// onOk={() => setnextButton(false)}
+					onCancel={() => setnextButton(false)}
+					footer = {
+						[
+							<Button key={0} onClick={() => setnextButton(false)} >Quay Lại</Button>,
+							<Button key={1} loading={isOrdering} onClick={handleOrder} >Đặt Hàng</Button>
+						]
+					}
+				>
+					<div className="show_data">
+						<div className="row">
+							<div className="label">
+								<h5>Tên:</h5>
+							</div>
+							<div className="content">
+								<h5>{receiver.name}</h5>
+							</div>
+						</div>
+						<div className="row">
+							<div className="label">
+								<h5>Địa Chỉ:</h5>
+							</div>
+							<div className="content">
+								<h5>{receiver.address}</h5>
+							</div>
+						</div>
+						<div className="row">
+							<div className="label">
+								<h5>Số Điện Thoại:</h5>
+							</div>
+							<div className="content">
+								<h5>{receiver.phoneNumber}</h5>
+							</div>
+						</div>
+						<div className="row">
+							<div className="label">
+								<h5>Khuyến Mãi:</h5>
+							</div>
+							<div className="content">
+								<Select defaultValue="" style={{ width: 120 }} >
+									{rewards.map((item) => (
+										<Option key={item.id} value={item.id}>{item.name}</Option>
+									))}
+								</Select>
+							</div>
+						</div>
+					</div>
+				</Modal>
+
 				<Form labelCol={{ span: 9 }} wrapperCol={{ span: 12 }}>
 					<Form.Item label="Tên:"
 						hasFeedback={true}
