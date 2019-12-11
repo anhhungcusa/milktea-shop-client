@@ -278,7 +278,7 @@ export const DataProvider = ({ children }) => {
             setStore((store) => ({ ...store, cart: [] }));
             return 200;
         } catch (error) {
-            // debugger
+            debugger
             return 400;
         }
     };
