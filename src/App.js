@@ -12,6 +12,7 @@ import { HomePage } from './Components/HomePage/HomePage';
 import { Order } from './Components/Order/Order';
 import { OrderModal } from './Components/Order/OrderModal/OrderModal';
 import { ProductDetail } from './Components/Product/ProductDetail/ProductDetail';
+import { Account } from './Components/Account/Account';
 
 const App = () => {
 	return (
@@ -20,6 +21,9 @@ const App = () => {
 				<DataProvider>
 					<TopMenu />
 					<Switch>
+						<Route path="/account">
+							<Account/>
+						</Route>
 						<Route path="/productdetail">
 							<ProductDetail/>
 						</Route>

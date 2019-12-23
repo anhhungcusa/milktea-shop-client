@@ -1,17 +1,16 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import './HomeBody.css';
+import React from 'react';
+import './Account.css';
 import 'antd/dist/antd.css';
-import  { TimeStore }  from '../../TimeStore/TimeStore';
-import { DataContext } from '../../../context/DataProvider';
-import { Card } from 'antd';
+// import { DataContext } from '../../context/DataProvider';
+import { Modal } from 'antd';
 
-export const HomeBody = () => {
-	let { store: { products }} = useContext(DataContext);
+export const Account = () => {
 
 	return (
-        <div>
-
-        </div>
+        <Modal>
+			<p>Some contents...</p>
+        	<p>Some contents...</p>
+        	<p>Some contents...</p>
+		</Modal>
 	);
 };

@@ -224,12 +224,12 @@ export const OrderModal = () => {
 									<Select
 										value={selectedReward}
 										onChange={onChangeSelectedReward}
-										style={{ width: 120 }}
+										style={{ width: 180 }}
 									>
 										{rewards.map((item) => (
 											<Option key={item.id} value={item.id}>
-												{item.name}
-											</Option>
+												{item.name} : {item.value}VNĐ
+											</Option> 
 										))}
 									</Select>
 								</div>

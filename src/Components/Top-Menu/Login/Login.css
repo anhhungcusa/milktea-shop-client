@@ -87,11 +87,7 @@
     margin-bottom: 10px ;
     /* border: 1px solid black; */
 }
-.line .item {
-    /* border: 1px solid black; */
-    /* text-align: right; */
-    /* margin: 15px auto; */
-}
+
 .line .item label {
     display: flex;
     justify-content: flex-end;
@@ -99,9 +95,7 @@
     /* margin-right: 20px; */
     font-weight: bold;
 }
-.signup_1 {
-    /* display: inline-block; */
-}
+
 .signup_1 .ipName {
     height: 30px;
     width: 200px;
@@ -158,11 +152,7 @@
     margin-bottom: 10px ;
     /* border: 1px solid black; */
 }
-.line .item {
-    /* border: 1px solid black; */
-    /* text-align: right; */
-    /* margin: 15px auto; */
-}
+
 .line .item label {
     display: flex;
     justify-content: flex-end;
@@ -170,9 +160,7 @@
     /* margin-right: 20px; */
     font-weight: bold;
 }
-.detail_information {
-    /* display: inline-block; */
-}
+
 .detail_information .name {
     height: 30px;
     width: 200px;
@@ -235,4 +223,53 @@
     color: #d3b673 ;  
     border: 2px solid #d3b673; 
     transition: all 0.3s ease; 
+}
+
+.row1 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.label1 {
+    text-align: right;
+}
+.label1 h5 {
+    font-size: 25px;
+}
+.row1 .content1 h5 {
+    text-align: left;
+    font-size: 25px;
+    margin-left: 2vh;
+}
+/* form lich su don hang */
+span .fake-link {
+    color:#40a9ff;
+    cursor: pointer;
+}
+span .fake-link:hover {
+    color: #1d588f;
+    cursor: pointer;
+}
+/* history  */
+.detail_row {
+    margin-bottom: 5px;
+}
+.body1 td {
+    width: 80px;
+    text-align: center;
+    /* border: 1px solid rgb(131, 126, 126); */
+    /* border-right: 1px solid black; */
+}
+.body1 th {
+    width: 80px;
+    text-align: center;
+}
+/* .body1 tr{
+    border-bottom: 1px solid black;
+} */
+.sub_table {
+    font-size: 11px;
+}
+.title_history {
+    font-weight: bold;
+    color: black;
 }

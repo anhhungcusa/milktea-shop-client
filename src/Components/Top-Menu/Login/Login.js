@@ -12,19 +12,260 @@ import { errorMessage, accountLimitValue } from '../../../constant/account';
 import moment from 'moment';
 import { formatDate, collections } from '../../../constant/firebase';
 import { FirebaseService } from '../../../service/firebase';
+import { Table, Divider } from 'antd';
 
 // const { SubMenu } = Menu;
 const { Step } = Steps;
 const { TabPane } = Tabs;
 
+
 function onChange(e) {
 }
 
-
 export const Login = () => {
-	const { store: { isLoggedIn, membership }, action: { auth: { signIn, signOut } } } = useContext(DataContext);
+	const { store: { isLoggedIn, membership, myProcessingOrders, products, myProcessedOrders }, action: { auth: { signIn, signOut }, orders: { deleteProcessinOrderAPI, addOrderToProcessedOrder } } } = useContext(DataContext);
 
+	const handleDeleteProcessingOrder = (id, record, idstate)  => {
+		const neworder = {...record};
+		neworder.idState = idstate;
+		addOrderToProcessedOrder(neworder);
+		deleteProcessinOrderAPI(neworder.id);
+	}
 
+	// list my processed order
+	const columns2 = [
+		{
+			key: 'createAt',
+			title: 'Ngày Đặt Hàng',
+			dataIndex: 'createAt',
+			render: createAt => moment(createAt).format("DD/MM/YYYY"),
+			width: 100,
+			align: 'center'
+		},
+		{
+			key: 'id',
+			title: 'ID',
+			dataIndex: 'id',
+			width: 100,
+		},
+		{
+			key: 'name',
+			title: 'Tên',
+			dataIndex: 'receiverInfo.name',
+			width: 50,
+			align: 'center'
+		},
+		{
+			key: 'address',
+			title: 'Địa Chỉ',
+			dataIndex: 'receiverInfo.address',
+			width: 150,
+			align: 'center'
+		},
+		{
+			key: 'phoneNumber',
+			title: 'SĐT',
+			dataIndex: 'receiverInfo.phoneNumber',
+			width: 80,
+			align: 'center'
+		},
+		{
+			key: 'product',
+			title: 'Chi Tiết Đơn Hàng',
+			dataIndex: 'detail',
+			width: 250,
+			align: 'center',
+			render: (detail) => detail.map((item) => (
+				<div className="detail_row" key={item.id}>
+					<table>
+						<thead>
+							<tr className="body1">
+								<th>
+									<span>Tên</span>
+								</th>
+								<th>
+									<span>Số Lượng</span>
+								</th>
+								<th>
+									<span>Giá</span>
+								</th>
+								<th>
+									<span>Tổng Tiền</span>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr className="body1">
+								<td>
+									{products.filter((product) => product.id === item.id).map((item2) => <span key={item2.id} className="sub_table">{item2.name}</span>)}
+								</td>
+								<td>
+									<span>{item.count}</span>
+								</td>
+								<td>
+									<span>{item.price}</span>
+								</td>
+								<td>
+									<span>{item.count * item.price}</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			))
+		},
+		{
+			key: 'discount',
+			title: 'Khuyến Mãi',
+			dataIndex: 'discount.value',
+			render: discount1 => <span>{discount1} VNĐ</span>,
+			width: 100,
+			align: 'center'
+		},
+		{
+			key: 'priceTotal',
+			title: 'Tổng Tiền',
+			dataIndex: 'priceTotal',
+			render: priceTotal => <span>{priceTotal} VNĐ</span>,
+			width: 100,
+			align: 'center'
+		},
+		{
+			width: 100,
+			key: 'action',
+			title: 'Action',
+			render: (record) => (
+				<span>
+					<Divider type="vertical" />
+					<span className="fake-link">Đánh Giá</span>
+					{/* <Divider type="vertical" /> */}
+					{/* <DetailOrder orderDetail={myProcessingOrders} /> */}
+					{/* <span className="fake-link">Xóa</span> */}
+				</span>
+			),
+			align: 'center'
+		},
+	]
+
+	// list my processing order
+	const columns = [
+		{
+			key: 'createAt',
+			title: 'Ngày Đặt Hàng',
+			dataIndex: 'createAt',
+			render: createAt => moment(createAt).format("DD/MM/YYYY"),
+			width: 100,
+			align: 'center'
+		},
+		{
+			key: 'id',
+			title: 'ID',
+			dataIndex: 'id',
+			width: 100,
+		},
+		{
+			key: 'name',
+			title: 'Tên',
+			dataIndex: 'receiverInfo.name',
+			width: 50,
+			align: 'center'
+		},
+		{
+			key: 'address',
+			title: 'Địa Chỉ',
+			dataIndex: 'receiverInfo.address',
+			width: 150,
+			align: 'center'
+		},
+		{
+			key: 'phoneNumber',
+			title: 'SĐT',
+			dataIndex: 'receiverInfo.phoneNumber',
+			width: 80,
+			align: 'center'
+		},
+		{
+
+			key: 'product',
+			title: 'Chi Tiết Đơn Hàng',
+			dataIndex: 'detail',
+			width: 250,
+			align: 'center',
+			render: (detail) => detail.map((item) => (
+				<div className="detail_row" key={item.id}>
+					<table>
+						<thead>
+							<tr className="body1">
+								<th>
+									<span>Tên</span>
+								</th>
+								<th>
+									<span>Số Lượng</span>
+								</th>
+								<th>
+									<span>Giá</span>
+								</th>
+								<th>
+									<span>Tổng Tiền</span>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr className="body1">
+								<td>
+									{products.filter((product) => product.id === item.id).map((item2) => <span key={item2.id} className="sub_table">{item2.name}</span>)}
+								</td>
+								<td>
+									<span>{item.count}</span>
+								</td>
+								<td>
+									<span>{item.price}</span>
+								</td>
+								<td>
+									<span>{item.count * item.price}</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			))
+		},
+		{
+			key: 'discount',
+			title: 'Khuyến Mãi',
+			dataIndex: 'discount.value',
+			render: discount1 => <span>{discount1} VNĐ</span>,
+			width: 100,
+			align: 'center'
+		},
+		{
+			key: 'priceTotal',
+			title: 'Tổng Tiền',
+			dataIndex: 'priceTotal',
+			render: priceTotal => <span>{priceTotal} VNĐ</span>,
+			width: 100,
+			align: 'center'
+		},
+		{
+			width: 100,
+			key: 'action',
+			title: 'Action',
+			dataIndex: 'id',
+			render: (dataIndex, record) => (
+				<span>
+					<Divider type="vertical" />
+					<span className="fake-link" onClick={() => handleDeleteProcessingOrder(dataIndex, record, 'pqVXUj9onmC07620vaZD')} >Hủy</span>
+				</span>
+			),
+			align: 'center'
+		},
+	];
+
+	const data2 = myProcessedOrders;
+	const data = myProcessingOrders;
+
+	//handle onpen/close model detail account
+	const [AccShow, setAccShow] = useState(false);
 	// handle open/close model
 	const [lgShow, setLgShow] = useState(false);
 	// handle tabs
@@ -360,8 +601,10 @@ export const Login = () => {
 				<Avatar size="large" style={{ backgroundColor: '#f56a00', verticalAlign: 'middle' }}>None</Avatar>
 			)}
 			{isLoggedIn && (
-				<Avatar size="large" style={{ backgroundColor: '#00a2ae', verticalAlign: 'middle' }}>{membership.name.slice(0, 1)}</Avatar>
+				<Avatar size="large" onClick={() => setAccShow(true)} style={{ backgroundColor: '#00a2ae', verticalAlign: 'middle' }}>{membership.name.slice(0, 1)}
+				</Avatar>
 			)}
+			{/* {console.log('sss:', membership.email)} */}
 			{!isLoggedIn && (
 				<Button id="sign-in" size="small" onClick={() => setLgShow(true)}
 					style={{ marginLeft: 16, verticalAlign: 'middle' }}>
@@ -374,6 +617,70 @@ export const Login = () => {
 					logout
 				</Button>
 			)}
+			{/* {isLoggedIn && (<h1>{membership.name}</h1>)} */}
+			{/* Detail account */}
+			{isLoggedIn && (
+				<Modal
+					width="1100px"
+					style={{ padding: 0 }}
+					visible={AccShow}
+					onOk={() => setAccShow(false)}
+					onCancel={() => setAccShow(false)}
+					className="modal"
+				>
+					<Tabs defaultActiveKey="1">
+						<TabPane tab="Thông tin cá nhân" key="1">
+							<div className="show_data">
+								<div className="row1">
+									<div className="label1">
+										<h5>Tên:</h5>
+									</div>
+									<div className="content1">
+										<h5>{membership.name}</h5>
+									</div>
+								</div>
+								<div className="row1">
+									<div className="label1">
+										<h5>Ngày Sinh:</h5>
+									</div>
+									<div className="content1">
+										<h5>{moment(membership.birthday).format("DD/MM/YYYY")}</h5>
+									</div>
+								</div>
+								<div className="row1">
+									<div className="label1">
+										<h5>Địa Chỉ:</h5>
+									</div>
+									<div className="content1">
+										<h5>{membership.address}</h5>
+									</div>
+								</div>
+								<div className="row1">
+									<div className="label1">
+										<h5>Email:</h5>
+									</div>
+									<div className="content1">
+										<h5>{membership.email}</h5>
+									</div>
+								</div>
+							</div>
+						</TabPane>
+						<TabPane tab="Lịch sử đơn hàng đang xử lý" key="2">
+							<h4 className="title_history">Đang Xử Lý</h4>
+							<div className="history_processing">
+								<Table columns={columns} rowKey={row => row.id} dataSource={data} />
+							</div>
+						</TabPane>
+						<TabPane tab="Lịch sử đơn hàng đã xử lý" key="3">
+							<h4 className="title_history">Đã Xử Lý</h4>
+							<div className="history_processing">
+								<Table columns={columns2} rowKey={row => row.id} dataSource={data2} />
+							</div>
+						</TabPane>
+					</Tabs>
+				</Modal>
+			)}
+			{/* Login */}
 			<Modal
 				width="1000px"
 				style={{ padding: 0 }}
@@ -382,7 +689,6 @@ export const Login = () => {
 				onCancel={() => setLgShow(false)}
 				className="modal"
 			>
-
 				<Tabs defaultActiveKey="1">
 					<TabPane tab="Đăng Nhập" key="1">
 						<div className="signin">

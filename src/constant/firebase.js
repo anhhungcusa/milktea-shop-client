@@ -37,6 +37,7 @@ export const orderx_docs = {
 }
 
 export const defaultIdState = 'Y8E2WTnlr7WRE3yeZoeO'
+export const AbortIDState = 'pqVXUj9onmC07620vaZD'
 export const paypal = 'DlmddFvkj5XdVfFPRVW7'
 // 10,000 = 1d
 export const calculateExtraPoint = priceTotal => Math.floor(priceTotal/10000) 

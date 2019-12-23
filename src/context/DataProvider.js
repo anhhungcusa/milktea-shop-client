@@ -150,6 +150,7 @@ export const DataProvider = ({ children }) => {
                             updateAt: membership.updateAt.toDate(),
                             createAt: membership.createAt.toDate(),
                             birthday: membership.birthday.toDate()
+                            
                         }
                     }));
                 });
@@ -383,7 +384,26 @@ export const DataProvider = ({ children }) => {
             cart: newCart
         });
     };
-
+    const deleteProcessinOrderAPI = (id) => {
+        return  FirebaseService.db
+        .collection(collections.orders)
+        .doc(orders_docs.processing)
+        .collection(sub_collections.types)
+        .doc(id).delete()
+    }
+    const addOrderToProcessedOrder = (order, newIdState) => {
+        return FirebaseService.db
+        .collection(collections.orders)
+        .doc(orderx_docs.processed)
+        .collection(sub_collections.types)
+        .doc(order.id).set({...order})
+    }
+    
+    useEffect(() => {
+        let a = store.myProcessingOrders;
+        // debugger
+        console.log('...:', a);
+    }, [store.myProcessingOrders])
     return (
         <DataContext.Provider
             value={{
@@ -403,7 +423,9 @@ export const DataProvider = ({ children }) => {
                         signOut
                     },
                     orders: {
-                        order
+                        order,
+                        deleteProcessinOrderAPI,
+                        addOrderToProcessedOrder
                     }
                 }
             }}
