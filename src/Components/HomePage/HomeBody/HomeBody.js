@@ -33,17 +33,17 @@ export const HomeBody = () => {
 						<img alt="err" src="//theme.hstatic.net/1000360860/1000486980/14/home_line.png?v=1359" />
 					</div>
 					<TimeStore/>
-					{/* show 8 products */}
+					{/* show 12 products */}
 					<div className="section-content">
 						<div className="grid-container">
-							{products.slice(3, 11).map((item) => (
+							{products.slice(3, 15).map((item) => (
 								//fix here
 								<Card
-									key={item.id}
+									key={item.id}	
 									className="grid-item"
 									hoverable
-									style={{ width: 240 }}
-									cover={<img alt="not found" src={item.imgURL} />}
+									style={{ width: 240, height: 395 }}
+									cover={<img alt="not found" height="260px" width="260px" src={item.imgURL} />}
 								>
 									{/* fix CSS text-overflow Property */}
 									<Meta title={item.name} description={item.price} />
