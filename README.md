@@ -1,13 +1,33 @@
 # Milk Tea Shop (Client)
-Using:
+
+## Requirements
+
+- Install Node
+
+## Using
 - Typescript
 - ReactJS
 - Redux
 - React-router
-- ant
+- Antd
 - Clound Firestore
-- Authentication - firebase
+- Authentication - Firebase
+## Installation
 
-Link demo: [shop](https://oalmilktea.web.app)
+Use the package manager [npm](https://www.npmjs.com/) to install dependencies.
 
-Link admin: [Source](https://github.com/anhhungcusa/milktea-shop-admin)
+``` cmd
+npm i
+```
+
+## Run
+
+``` cmd
+npm start
+```
+## Demo
+[link](https://oalmilktea.web.app)
+
+## Relation
+ - [admin page](https://admin-oalmilktea.web.app/)
+ - [admin source](https://github.com/anhhungcusa/milktea-shop-admin)
