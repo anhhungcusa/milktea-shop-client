@@ -12,6 +12,13 @@
 - Antd
 - Clound Firestore
 - Authentication - Firebase
+## Feature
+- order 
+- cancel order
+- pay via paypal
+- view history
+- ...
+
 ## Installation
 
 Use the package manager [npm](https://www.npmjs.com/) to install dependencies.
